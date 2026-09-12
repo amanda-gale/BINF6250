@@ -36,8 +36,13 @@ from pprint import pprint
 
 # update_dictionary()
     """Takes in dictionary and list and returns a dictionary."""
+    # loop over elements in list
+        # if key exists in dictionary
+            # add one to value
+        # else
+            # initialize key with value of 1
 
-
+    # return dictionary
 
 if __name__ == "__main__":
     #pprint(read_file("clinvar_20190923_short.vcf"))

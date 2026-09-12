@@ -32,16 +32,17 @@ def parse_line(this_line):
         if af_start != -1:
             print("AF_EXAC entry found")
             # extract AF_EXAC
-            af_end = this_line[af_start:].find(';')
-            print("AF_EXAC string:", this_line[af_start:af_end])
-            af_value = this_line[af_start:af_end].split("=")[1]
+            this_line = this_line[af_start:]
+            af_end = this_line.find(';')
+            print("AF_EXAC string:", this_line[0:af_end])
+            af_value = float(this_line[0:af_end].split('=')[1])
             print("AF_EXAC value:", af_value)
             # check significance
             if af_value >= 0.0001:
-                print("AF value not rare.", af_value)
+                print("AF value not rare.\n")
                 pass
             else:
-                print("Rare AF value found!", af_value)
+                print("Rare AF value found!\n")
                 # parse CDN - own function?
                 # separate things by pipe into separate list elements
                 # drop list elements that are not_specified or not_provided

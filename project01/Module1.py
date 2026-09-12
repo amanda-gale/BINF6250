@@ -55,62 +55,47 @@ You will be expected to consider two (2) special types of keys:
 from pprint import pprint
 
 # Modify this function signature and fill in the details
-def parse_line() # if we want it to take a string as an argument, would we do "-> str" ?
+def parse_line(line): # argument:string
+    strip_header = line.strip().split('\t')
+    extract_info_column = strip_header[7]
 
+    # Extracting values from INFO
 
-    ----------------------
-
-    #All this is brainstorming
-
-    header_lines = sum(1 for line in f if line.startswith("#")) # This line was taken directly from google
-    if line.startswith('parameter'): # would this be '#' since header lines start with that?
-        continue
-    else
-        header_lines = in_fh.readline().strip().split('\t') #this was taken from BINF 6200
-        info_field = cols[7]  # Column 8 is INFO # This line was taken directly from google
-
-    extract vals from INFO
-
-    # below is found in the header of clinvar
-   # AF_EXAC key: ##INFO=<ID=AF_EXAC,Number=1,Type=Float,Description="allele frequencies from ExAC">;
-    # CLNDN key: ##INFO=<ID=CLNDN,Number=.,Type=String,Description="ClinVar's preferred disease name for the concept specified by disease identifiers in CLNDISDB">;
-
-    if AF_EXAC is not present, skip
-        # would it be better to do if AF_EXAC is present, continue?
-    else:
-        # note: we can fact-check # of AF_EXAC
-        # note 2: CLNDN is what has "not_specified or "not_provided"
-        if significance of AF_EXAC < 0.0001
-            print list of CLNDN disease names
-                specify that some disease names are piped " | "
-
-
+    # INFO columns is in key=value;key=value;....... so we need to split the semicolons, then the key/value pairs
+    # which operations split semicolon chunks and dicts?
+    # we need to do this first before working with AF_EXAC
+    if AF_EXAC is present
+        if significance of AF_EXAC < 0.0001 # 'AF_EXAC < 0.0001'
+            return list of CLNDN disease names, skip "not specified" and/or "not provided"
+                # how to handle cases where disease names are piped " | " ?
 
         else:
-            return list()
+            return list() # return empty list if AF_EXAC not significant
 
 
+# note that from this function we want to return a list
 pass
 
 
+
+def update_dictionary(#key;value pair, something else here)
+        # creating a dictionary here.
+        # Note: we need to return a list from parse_line of AF_EXAC < 0.00001, and then create a dictionary of the CLNDN disease name and tally for each significant AF_EXAC
+    key = CLNDN disease name #based on AF_EXAC < 0.0001
+    value = tally of CLNDN disease names
+
+# format? print("f {variable representing disease name} : {tally}) and this would be for each disease
+
+
+
 # Modify this function signature and fill in the details
-def read_file()
+def read_file(clinvar)
+    with open('clinvar_20190923_short.vcf', 'r') as f:
+        for line in f:
+            if line.startswith('#') #skip all lines that start with '#'
+                continue
 
-    ----------------------
-    # more brainstorming
-
-    with open('../../clinvar_20190923_short.vcf', 'r') as f:  #taken from BINF6200 lec3
-#    for line in f
-
-create dictionary
-i+1 # tally for parselines count of each disease mentioned
-# so I believe it would be print("f {variable representing disease name} : {tally}) and this would be for each disease
-
-print(f"")readfile results
-
-
-   ----------------------
-
+    calling from other two functions and returning here
 
     pass
 

@@ -23,13 +23,13 @@ from pprint import pprint
     """Takes string and returns a list."""
     # initialize empty list
 
-    ## assuming AS_EXAC present
-    # if as_exac:
+    ## assuming AF_EXAC present
+    # if af_exac:
         # extract AF_EXAC
         # if not significant
            # continue
         # else
-            # parse CDN - own function?
+            # parse CLNDN
             # separate things by pipe into separate list elements
             # drop list elements that are not_specified or not_provided
             # replace initial list with new list (list may be empty)
@@ -54,9 +54,7 @@ from pprint import pprint
 if __name__ == "__main__":
     #pprint(read_file("clinvar_20190923_short.vcf"))
 
-```
-x = 10
-```
+
 
 # Successes
 We originally coded individually and then compared our code, and found that comparing our different approaches was one of the most useful parts of the process. Amanda's version follows the instructions very literally.  Her read_file does no filtering of its own and simply passes every line to parse_line, which then has to check for header lines, check for AF_EXAC, and handle everything else itself, making parse_line longer and more complex. Ildiko and Mara both instead had read_file filter out header lines before anything reaches parse_line, which is more efficient, but relies on read_file taking on some of the checking that the instructions describe as parse_line's job. Both approaches produce functional, correct programs. Since neither approach was wrong, working through this tradeoff, strict adherence to the assignment's described function boundaries versus overall efficiency, was a genuinely useful exercise.
@@ -72,7 +70,7 @@ One of the biggest struggles for this project was that both Ildiko and Mara were
 
 On the Git and GitHub side specifically, it took real time and repetition to get comfortable with the workflow.  Understanding the difference between a start branch and a PR branch and why both are needed to open a pull request, learning that git add alone does not save anything until git commit is run, and discovering that forks do not automatically sync with each other. A teammate's push to their own fork, or to the original repository, has to be manually pulled in before it shows up anywhere else. This caused real confusion at one point when a teammate's new file did not appear locally even though it was visible on GitHub, which turned out to be because we were looking at two different repositories, a fork and the original, that looked nearly identical.
 
-We also ran into a smaller but instructive snag when trying to run a finished script.  A FileNotFoundError on the VCF file, which turned out to be a working-directory issue rather than a missing-file issue. Python looks for a relative filename starting from wherever the terminal is standing, not from wherever the script itself is saved, and VS Code's run button does not always use the terminal tab that is currently active. Using different ide's did not pose any unexpected issues for the collaboration.
+We also ran into a smaller but instructive snag when trying to run a finished script.  A FileNotFoundError on the VCF file, which turned out to be a working-directory issue rather than a missing-file issue. Python looks for a relative filename starting from wherever the terminal is standing, not from wherever the script itself is saved, and VS Code's run button does not always use the terminal tab that is currently active. Using different IDEs did not pose any unexpected issues for the collaboration.
 
 Even though we worked well together as a group, it took a little time to hit our stride, particularly while getting used to a new class's teaching style and expectations. Adjusting to a new platform and workflow, on top of the technical learning curve, meant our first several sessions together were as much about figuring out how to collaborate effectively as they were about the assignment itself.
 

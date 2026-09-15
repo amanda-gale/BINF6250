@@ -1,8 +1,18 @@
+
+
+
 from pprint import pprint
 
 
-def parse_line(this_line):
-    """Takes string and returns a list."""
+def parse_line(this_line: str) -> list:
+    """
+    Accepts a line from a vcf file as input then evaluates it for relevance and the presence
+    of an AF_EXAC ID, then parses and returns a list of diseases associated with the CLNDN info.
+    Returns an empty list if no diseases are found.
+
+    :param this_line: The line from the vcf file
+    :return: list of CLNDN info or empty list
+    """
 
     print(this_line.strip())
     clndn_list = []   # list to track clndn
@@ -31,7 +41,7 @@ def parse_line(this_line):
                 clndn_line = this_line[clndn_start:]
                 # extract clndnd string
                 clndn_end = clndn_line.find(';')
-                print("CLNDN string:", clndn_line[0:clndn_end])
+                ##print("CLNDN string:", clndn_line[0:clndn_end])
                 clndn_value = clndn_line[0:clndn_end].split('=')[1]
                 # separate elements by pipe into separate list elements
                 if '|' in clndn_value:
@@ -56,8 +66,15 @@ def parse_line(this_line):
     return clndn_list
 
 
-def update_dictionary(clndn_dict, clndn_list):
-    """Takes in dictionary and list and returns a dictionary."""
+def update_dictionary(clndn_dict: dict, clndn_list: list) -> dict:
+    """
+    Updates the CLNDN disease counter dictionary with the CLNDN info parsed
+    from a given line in the vcf file.
+
+    :param clndn_dict: The CLNDN disease counter dictionary
+    :param clndn_list: The list of CLNDN diseases from an AF_EXAC line in the vcf file
+    :return: The updated CLNDN disease counter dictionary
+    """
 
     for disease in clndn_list:
         if disease in clndn_dict:   # if disease exists in dictionary
@@ -68,8 +85,16 @@ def update_dictionary(clndn_dict, clndn_list):
     return clndn_dict
 
 
-def read_file(filename):
+def read_file(filename: str) -> dict:
+    """
+    Accept the name of a VCF file as input then passes each line of the file to a parsing function,
+    the output of which (unless empty) is sent to a dictionary updating function to keep track of
+    disease counts. Returns the final disease count dictionary once every line in the file has been
+    evaluated.
 
+    :param filename: the name of a vcf file
+    :return: A dictionary tracking all CLNDN disease counts from the entire vcf file
+    """
     clndn_dict = {}
 
     with open(filename, 'r') as f:

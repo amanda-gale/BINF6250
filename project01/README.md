@@ -147,5 +147,8 @@ I found writing pseudocode in plain English to be a very practical skill. I have
  
 Amanda was an excellent group leader and was very patient with both me and Ildiko working through our code and learning GitHub and had an in-depth explanation for every question asked. Ildiko and I, having similar Python experience, were able to talk each other through our various knowledge gaps, and effectively communicate any shared coding uncertainties. I found it very valuable to learn to work collaboratively in a remote environment.  
 
+# Data Source
+Landrum MJ, Lee JM, Riley GR, Jang W, Rubinstein WS, Church DM, Maglott DR. ClinVar: public archive of relationships among sequence variation and human phenotype. Nucleic Acids Research. 2014;42(1):D980–D985. doi:10.1093/nar/gkt1113.
+
 # Generative AI Appendix
-Generative AI was not used in this project
+Generative AI was used to generate the ClinVar citation.

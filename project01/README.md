@@ -72,7 +72,19 @@ Even though we worked well together as a group, it took a little time to hit our
 
 # Personal Reflections
 ## Group Leader:  Amanada
-Group leader's reflection on the project
+After attending our first lecture as a class, I realized that I may be one of the more experienced programmers here. 
+I went into this project ready to take on the role as group leader, knowing how unintuitive and frustrating learning 
+GitHub is. 
+
+My first impression of the project was that it seems like a very good starting point for an algorithms course. It hits on 
+so many core concepts that I learned early in my programming journey. While I have reasoned through code like this many times at
+this point in my career, I have never had the opportunity to teach others how to approach these problems. It was a wonderful
+experience to work with Ildiko and Mara, two bright and enthusiastic women in science like myself. I was able to teach them 
+some tips I have picked up over the years that help me tackle these problems quickly and thoroughly while limiting errors along the way. 
+
+Given that they had less experience than me, I was pleasantly surprised at how much they were able to contribute their 
+to the project. Our end result is truly a comprehensive effort at solving this problem according to our interpretation of 
+Dr. Sherman's instructions.
 
 ## Other member:  Ildiko
 Coming into this project, I had not written Python in a while, so my first goal was simply to get comfortable writing code again. I had never written pseudocode before, and I found that starting with plain-English pseudocode before writing any real code helped a great deal, since it let me work out the logic without also fighting rusty syntax at the same time. The more organized and well-planned my pseudocode was, the easier it was to translate into actual code.

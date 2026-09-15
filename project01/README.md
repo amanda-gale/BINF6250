@@ -93,6 +93,9 @@ Final disease count:
  'Upper_limb_hypertonia': 1,
  'hypotonia': 2}
 
+# Evidence and Reasoning
+ Amanda's implementation and Ildiko and Mara's implementation were written independently, using different internal approaches to locating AF_EXAC and to filtering header lines, yet all three produced this identical final disease count when run against the same file. This agreement between structurally different implementations serves as an informal cross-check on the correctness of the result. We did not perform additional automated testing beyond this comparison, so edge cases not represented in this particular VCF file, such as malformed INFO fields or unusual CLNDN formatting, remain unverified.
+
 # Successes
 We originally coded individually and then compared our code, and found that comparing our different approaches was one of the most useful parts of the process. Amanda's version follows the instructions very literally.  Her read_file does no filtering of its own and simply passes every line to parse_line, which then has to check for header lines, check for AF_EXAC, and handle everything else itself, making parse_line longer and more complex. Ildiko and Mara both instead had read_file filter out header lines before anything reaches parse_line, which is more efficient, but relies on read_file taking on some of the checking that the instructions describe as parse_line's job. Both approaches produce functional, correct programs. Since neither approach was wrong, working through this tradeoff, strict adherence to the assignment's described function boundaries versus overall efficiency, was a genuinely useful exercise.
 
@@ -110,6 +113,9 @@ On the Git and GitHub side specifically, it took real time and repetition to get
 We also ran into a smaller but instructive snag when trying to run a finished script.  A FileNotFoundError on the VCF file, which turned out to be a working-directory issue rather than a missing-file issue. Python looks for a relative filename starting from wherever the terminal is standing, not from wherever the script itself is saved, and VS Code's run button does not always use the terminal tab that is currently active. Using different IDE's did not pose any unexpected issues for the collaboration.
 
 Even though we worked well together as a group, it took a little time to hit our stride, particularly while getting used to a new class's teaching style and expectations. Adjusting to a new platform and workflow, on top of the technical learning curve, meant our first several sessions together were as much about figuring out how to collaborate effectively as they were about the assignment itself.
+
+# Reflection and Adaptive Learning
+Each of the struggles points to a specific thing we'd do differently next time. For the repository confusion, we'd check the repository owner and URL first before assuming a git command itself was broken. For the forks-not-syncing issue, we'd build a habit of fetching from upstream at the start of every work session rather than only doing so reactively after noticing something was missing. For the FileNotFoundError, we now know to check the terminal's working directory before assuming a file is misplaced, and to run scripts directly from the terminal rather than relying on an IDE's run button, since it doesn't always use the terminal we expect. More broadly, since two of us came into this project with rusty Python and no prior Git experience, we'd budget deliberate time early on to practice the basic Git workflow, add, commit, push, pull, branch, on a low-stakes test file before touching real project code, rather than learning the mechanics for the first time under the pressure of an actual deadline.  Most of these should resolve naturally as our workflow becomes more practiced, though new technical challenges will likely surface as the projects grow more complex.
 
 # Personal Reflections
 ## Group Leader:  Amanada

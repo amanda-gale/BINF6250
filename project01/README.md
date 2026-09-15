@@ -126,7 +126,7 @@ GitHub is.
 My first impression of the project was that it seems like a very good starting point for an algorithms course. It hits on 
 so many core concepts that I learned early in my programming journey. While I have reasoned through code like this many times at
 this point in my career, I have never had the opportunity to teach others how to approach these problems. It was a wonderful
-experience to work with Ildiko and Mara, two bright and enthusiastic women in science like myself. I was able to teach them 
+experience to work with Ildiko and Mara, two bright and enthusiastic scientists like myself. I was able to teach them 
 some tips I have picked up over the years that help me tackle these problems quickly and thoroughly while limiting errors along the way. 
 
 Given that they had less experience than me, I was pleasantly surprised at how much they were able to contribute their 

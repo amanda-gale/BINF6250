@@ -1,4 +1,21 @@
+"""
+Project01.py
 
+Parses a specialized ClinVar VCF file to identify rare genetic variants
+and tally the diseases associated with them.
+
+For each line in the file, parse_line checks the AF_EXAC allele frequency
+to determine whether a variant is rare (AF_EXAC < 0.0001). If the variant
+is rare, it extracts the associated disease name(s) from the CLNDN field,
+splitting on the pipe character when multiple diseases are listed and
+excluding placeholder values (not_specified, not_provided). update_dictionary
+then folds those diseases into a running tally. read_file coordinates the
+process. It opens the VCF file, reads it one line at a time, and calls
+parse_line and update_dictionary for each line until the file is exhausted.
+
+Running this script directly prints the final tally, a count of how many
+times each disease appeared among the rare variants in the file.
+"""
 
 
 from pprint import pprint

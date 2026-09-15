@@ -1,15 +1,11 @@
 # Introduction
-This project parses data from a specialized ClinVar VCF file. The AF_EXAC key describes the allele frequencies 
-and the CLNDN key gives the names of the diseases associated with it. The goal is to identify rare variants 
-and tally the diseases linked to them. A variant is considered rare if its AF_EXAC value is below 0.0001. 
-For each rare variant, the program extracts its associated diseases from CLNDN, splitting multiple diseases 
-apart where needed and excluding placeholder values that don't represent real diagnoses. The program reads 
-the file one line at a time and tallies each disease into a running dictionary, printing the final counts once 
-the file is done.
+This project parses data from a specialized ClinVar VCF file. The AF_EXAC key describes the allele frequencies and the CLNDN key gives the names of the diseases associated with it. The goal is to identify rare variants and tally the diseases linked to them. A variant is considered rare if its AF_EXAC value is below 0.0001. For each rare variant, the program extracts its associated diseases from CLNDN, splitting multiple diseases apart where needed and excluding placeholder values that don't represent real diagnoses. The program reads the file one line at a time and tallies each disease into a running dictionary, printing the final counts once the file is done.
 
-The program is structured into three functions, each with a single responsibility.  parse_line judges one line and returns its associated diseases if it's rare, update_dictionary folds those diseases into the running tally, and read_file coordinates the process, looping through the file and calling the other two.
+The program is structured into three functions, each with a single responsibility. parse_line judges one line and returns its associated diseases if it's rare, update_dictionary folds those diseases into the running tally, and read_file coordinates the process, looping through the file and calling the other two.
 
-Our group, Amanda, Mara, and Ildiko, collaborated using a GitHub fork-and-pull-request workflow, with Amanda as group leader.  It was a valuable exercise in working asynchronously through GitHub, making decisions and writing code as a group, and writing a substantial amount of string operations to parse a VCF file.
+Our group, Amanda, Mara, and Ildiko, collaborated using a GitHub fork-and-pull-request workflow, with Amanda as group leader. It was a valuable exercise in working asynchronously through GitHub, making decisions and writing code as a group, and writing a substantial amount of string operations to parse a VCF file.
+
+All required functionality described in the assignment instructions was completed. The final program includes both required functions, read_file and parse_line, along with an additional function, update_dictionary, that the group added by choice to keep each function limited to a single responsibility. No functionality was deferred or left incomplete.
 
 # Pseudocode
 
@@ -58,6 +54,45 @@ Our group, Amanda, Mara, and Ildiko, collaborated using a GitHub fork-and-pull-r
 
     # return dictionary
 
+# Results Output
+Final disease count:
+{'Cardiovascular_phenotype': 14,
+ 'Cleft_palate': 1,
+ 'Congenital_myasthenic_syndrome': 3,
+ 'Developmental_regression': 1,
+ 'Dystonia': 1,
+ 'EEG_with_generalized_epileptiform_discharges': 1,
+ 'Ehlers-Danlos_syndrome,_progeroid_type,_2': 2,
+ 'Expressive_language_delay': 1,
+ 'Failure_to_thrive': 1,
+ 'Global_developmental_delay': 2,
+ 'Growth_delay': 1,
+ 'Hypothyroidism': 1,
+ 'Idiopathic_generalized_epilepsy': 14,
+ 'Immunodeficiency_16': 2,
+ 'Immunodeficiency_38_with_basal_ganglia_calcification': 3,
+ 'Inability_to_walk': 1,
+ 'Inborn_genetic_diseases': 2,
+ 'Infantile_axial_hypotonia': 1,
+ 'Intellectual_disability': 1,
+ 'Limb_hypertonia': 1,
+ 'Marfanoid_habitus': 1,
+ 'Mental_retardation,_autosomal_dominant_42': 1,
+ 'Multifocal_epileptiform_discharges': 1,
+ 'Muscular_hypotonia': 2,
+ 'Myasthenic_syndrome,_congenital,_8': 79,
+ 'Myelodysplastic_syndrome': 1,
+ 'Neurodevelopmental_Disability': 2,
+ 'Nystagmus': 1,
+ 'Seizures': 2,
+ 'Severe_Myopia': 1,
+ 'Shprintzen-Goldberg_syndrome': 37,
+ 'Spinocerebellar_ataxia_21': 1,
+ 'Spondyloepimetaphyseal_dysplasia_with_joint_laxity': 1,
+ 'Strabismus': 1,
+ 'Upper_limb_hypertonia': 1,
+ 'hypotonia': 2}
+
 # Successes
 We originally coded individually and then compared our code, and found that comparing our different approaches was one of the most useful parts of the process. Amanda's version follows the instructions very literally.  Her read_file does no filtering of its own and simply passes every line to parse_line, which then has to check for header lines, check for AF_EXAC, and handle everything else itself, making parse_line longer and more complex. Ildiko and Mara both instead had read_file filter out header lines before anything reaches parse_line, which is more efficient, but relies on read_file taking on some of the checking that the instructions describe as parse_line's job. Both approaches produce functional, correct programs. Since neither approach was wrong, working through this tradeoff, strict adherence to the assignment's described function boundaries versus overall efficiency, was a genuinely useful exercise.
 
@@ -97,7 +132,7 @@ Coming into this project, I had not written Python in a while, so my first goal 
 
 The most valuable thing I picked up from this project was Amanda's print-statement debugging habit.  Adding print statements at almost every step while writing a function, watching it process real data line by line, and only commenting them out once things worked. This made it dramatically easier to catch a mistake exactly where it happened, rather than getting a wrong final answer and working backward to find out why. It saved so much time troubleshooting bad code. I plan to use this consistently going forward, especially while my Python is still rusty.
 
-Overall, I really enjoyed working with Amanda and Mara. Amanda has more experience with both Python and GitHub, and she was a patient, thorough teacher rather than someone who just handed us answers. When our approaches diverged, whether in code design or in how to interpret the instructions, we talked it through as a group, asked each other real questions, and reached a shared decision rather than any one person deciding for the group. That collaborative problem-solving was, honestly, the best part of this project.
+Overall, I really enjoyed working with Amanda and Mara. Amanda has more experience with both Python and GitHub, and she was a patient, thorough teacher rather than someone who just handed us answers. It was helpful being on a similar level as Mara and we worked together to troubleshoot and learn independently in parts, as we often had similar questions and struggles.  When our approaches diverged, whether in code design or in how to interpret the instructions, we talked it through as a group, asked each other real questions, and reached a shared decision rather than any one person deciding for the group. That collaborative problem-solving was, honestly, the best part of this project.
 
 ## Other member:  Mara
 The operations performed in this project not only have real-life use-cases but was very beneficial for reinforcing some core concepts about string manipulation. Additionally, learning GitHub, which I'd never previously used, will be useful moving forward.  

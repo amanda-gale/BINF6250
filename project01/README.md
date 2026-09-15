@@ -1,5 +1,11 @@
 # Introduction
-This project parses data from a specialized ClinVar VCF file. The AF_EXAC key describes the allele frequencies and the CLNDN key gives the names of the diseases associated with it. The goal is to identify rare variants and tally the diseases linked to them. A variant is considered rare if its AF_EXAC value is below 0.0001. For each rare variant, the program extracts its associated diseases from CLNDN, splitting multiple diseases apart where needed and excluding placeholder values that don't represent real diagnoses. The program reads the file one line at a time and tallies each disease into a running dictionary, printing the final counts once the file is done.
+This project parses data from a specialized ClinVar VCF file. The AF_EXAC key describes the allele frequencies 
+and the CLNDN key gives the names of the diseases associated with it. The goal is to identify rare variants 
+and tally the diseases linked to them. A variant is considered rare if its AF_EXAC value is below 0.0001. 
+For each rare variant, the program extracts its associated diseases from CLNDN, splitting multiple diseases 
+apart where needed and excluding placeholder values that don't represent real diagnoses. The program reads 
+the file one line at a time and tallies each disease into a running dictionary, printing the final counts once 
+the file is done.
 
 The program is structured into three functions, each with a single responsibility.  parse_line judges one line and returns its associated diseases if it's rare, update_dictionary folds those diseases into the running tally, and read_file coordinates the process, looping through the file and calling the other two.
 
